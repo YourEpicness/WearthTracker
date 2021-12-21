@@ -20,7 +20,7 @@ async function registerUser(req, res) {
       userEmail: email,
       userPassword: password,
     });
-    console.log("User creatd successfully");
+    console.log("User created successfully");
     res.status(201).json({
       message: `User ${firstName} ${lastName} has registered successfully`,
     });
