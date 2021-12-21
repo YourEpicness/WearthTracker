@@ -1,6 +1,11 @@
 const { User } = require("../../models/model.sql");
 async function getAllUsers(req, res) {
-  return res.status(200).json({ msg: "works" });
+  try {
+    const users = await User.findAll();
+    return res.status(200).json({ data: users });
+  } catch (err) {
+    console.error(err);
+  }
 }
 
 async function registerUser(req, res) {
