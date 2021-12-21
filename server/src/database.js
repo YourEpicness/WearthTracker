@@ -12,4 +12,12 @@ const authenticateDB = async () => {
   }
 };
 
-module.exports = { authenticateDB };
+const syncDB = async () => {
+  try {
+    const res = await sequelize.sync();
+  } catch (err) {
+    console.error("An error has occurred while syncing", err);
+  }
+};
+
+module.exports = { sequelize, authenticateDB, syncDB };
