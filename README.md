@@ -13,11 +13,11 @@ git clone https://github.com/YourEpicness/WearthTracker.git
 cd WearthTracker
 
 cd client
-
+npm install
 npm run start
 
 cd ../server
-
+npm install
 npm run start
 ```
 
