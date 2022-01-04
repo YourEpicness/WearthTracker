@@ -6,7 +6,7 @@
     let hidden = true;
 
     function signOut() {
-
+        
     }
 
     function toggleFavorites() {
@@ -62,16 +62,20 @@
 
 
 <style lang="postcss">
+    .navitem {
+		@apply flex text-white bg-primary rounded-md border border-black px-4 py-2 cursor-pointer hover:text-lightSecondary;
+	}
+    
     .selected {
-        @apply text-lightSecondary fill-lightSecondary
+        @apply text-lightSecondary fill-lightSecondary;
     }
 
     .ico {
-        @apply -ml-2 mr-2
+        @apply -ml-2 mr-2;
     }
 
     .arrow {
-        @apply border-r-[3px] border-b-[3px] inline-block p-[3px] border-black
+        @apply border-r-[3px] border-b-[3px] inline-block p-[3px] border-black;
     }
 
     .down {

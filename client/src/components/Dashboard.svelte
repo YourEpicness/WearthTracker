@@ -2,9 +2,34 @@
     import Transaction from './Transaction.svelte';
     let totalIncome:number = 0;
     let totalExpense:number = 0;
-    let netIncome:number = 0;
+    let netIncome:number = totalIncome - totalExpense;
 
-    let transactions:any = [];
+    interface Transaction {
+        title:string,
+        imageUrl:string,
+        date:string,
+        category:string,
+        amount:number,
+        type:string
+    }
+    let transactions:Transaction[] = [
+        {
+            title: 'Walmart',
+            imageUrl: '/static/placeholdergrocery.jpg',
+            date:'Nov 11 2021',
+            category:'grocery',
+            amount:146.28,
+            type: 'expense'
+        }
+    ];
+
+    $:transactions.forEach(transaction => {
+        if(transaction.type == 'expense') {
+            totalExpense += transaction.amount
+        } else {
+            totalIncome += transaction.amount
+        }
+    })
 
 </script>
 
@@ -37,12 +62,19 @@
 
         <input class="mt-5 rounded-default shadow-light bg-bgPrimary text-neutral italic px-4 py-1" type="search" name="" id="" placeholder="Search...">
 
-        <div class="flex flex-col min-h-[25%] mt-10 rounded-default bg-neutral-50">
+        <div class="flex flex-col min-h-[25%] mt-10 rounded-default bg-neutral-50 p-4">
             {#if transactions.length === 0}
                 <p class="font-bold text-center"> Currently empty. Please add a transaction</p>
             {:else}
                 {#each transactions as transaction}
-                    <Transaction imageUrl="/static/placeholdergrocery.jpg" title={''}/>
+                    <Transaction 
+                        imageUrl={transaction.imageUrl} 
+                        title={transaction.title} 
+                        date={transaction.date} 
+                        category={transaction.category} 
+                        amount={transaction.amount}
+                        type={transaction.type}
+                    />
                 {/each}
             {/if}
         </div>
@@ -50,6 +82,8 @@
 
     <div class="col-start-2 col-end-3 p-12">
         <h2 class="font-bold text-4xl"> Monthly Budget</h2>
+
+        <h3 class="font-bold text-3xl"> Expenses by category</h3>
     </div>
  
 	
@@ -57,6 +91,6 @@
 
 <style lang="postcss">
     .date {
-        @apply border-2 border-black bg-neutral-50
+        @apply border-2 border-black bg-neutral-50;
     }
 </style>
