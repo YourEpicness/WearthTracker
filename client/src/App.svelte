@@ -1,12 +1,11 @@
 <script lang="ts">
 	import Nav from './components/Nav.svelte';
+	import Dashboard from './components/Dashboard.svelte'
 </script>
 
 <main class="flex grow h-screen">
 	<Nav />
-	<div class="w-full bg-bgSecondary p-16">
-		<h1 class="text-4xl"> Wearth Tracker App</h1>
-	</div>
+	<Dashboard />
 </main>
 
 <style global lang="postcss">

@@ -32,6 +32,11 @@ module.exports = {
       },
       borderRadius: {
         circle: "50%",
+        default: "10px",
+      },
+      boxShadow: {
+        light: "0px 2px 2px rgba(0, 0, 0, 0.25);",
+        transaction: "0px 4px 4px rgba(0, 0, 0, 0.25);",
       },
     },
   },
