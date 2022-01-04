@@ -39,7 +39,7 @@ function open(callback){
 	document.body.appendChild(topDiv)
 }
 	
-function close(retVal){
+function close(retVal?){
 	if(!visible) return
 	window.removeEventListener("keydown",keyPress)
 	onTop=prevOnTop
