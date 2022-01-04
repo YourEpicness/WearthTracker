@@ -1,5 +1,11 @@
 const { Sequelize } = require("sequelize");
 const sequelize = new Sequelize("sqlite:/db/wearth.db");
+// const { User, Account, Transaction } = require("./models/model.sql");
+
+// // Relationships
+// Account.belongsTo(User);
+// Transaction.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
+// User.hasMany(Transaction);
 
 const authenticateDB = async () => {
   try {

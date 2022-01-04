@@ -1,17 +1,20 @@
 module.exports = {
-  purge: {
-    enabled: !process.env.ROLLUP_WATCH,
-    content: ["./public/index.html", "./src/**/*.svelte"],
-    options: {
-      defaultExtractor: (content) => [
-        ...(content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []),
-        ...(content.match(/(?<=class:)[^=>\/\s]*/g) || []),
-      ],
-    },
-  },
-  content: ["./src/**/*.svelte"],
+  // purge: {
+  //   enabled: !process.env.ROLLUP_WATCH,
+  //   content: ["./public/index.html", "./src/**/*.svelte"],
+  //   options: {
+  //     defaultExtractor: (content) => [
+  //       ...(content.match(/[^<>"'`\s]*[^<>"'`\s:]/g) || []),
+  //       ...(content.match(/(?<=class:)[^=>\/\s]*/g) || []),
+  //     ],
+  //   },
+  // },
+  content: ["./public/index.html", "./src/**/*.svelte"],
   theme: {
     extend: {
+      colors: {
+        lightSecondary: "#21EC1D",
+      },
       textColor: {
         error: "#850A0A",
         primary: "#65520D",
@@ -25,6 +28,7 @@ module.exports = {
         primary: "#65520D",
         secondary: "#137211",
         bgSecondary: "#F3FFF5",
+        lightSecondary: "#21EC1D",
       },
       borderRadius: {
         circle: "50%",
