@@ -5,11 +5,24 @@
     export let category:string;
     export let amount:number;
     export let type:string;
+    export let id:number;
 
     let hidden:boolean = true;
 
     function showCategory() {
         hidden = !hidden
+    }
+
+    async function deleteTransaction() {
+        const url = `http://localhost:3005/api/transactions/${id}`
+        const options = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+        const res = await fetch(url, options)
+        return res.json()
     }
 </script>
 
@@ -29,7 +42,7 @@
 
         <div class="flex justify-between mt-2">
             <button class="btn text-black border-black"> Edit</button>
-            <button class="btn text-error border-error"> Delete </button>
+            <button on:click={deleteTransaction} class="btn text-error border-error"> Delete </button>
         </div>
     </div>
 
