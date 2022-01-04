@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  transactionVendor: MyText
+  transactionDate: 2022-01-04
+  transactionType: MyText
+  transactionAmount: 9.99
+  transactionCategory: MyText
+
+two:
+  transactionVendor: MyText
+  transactionDate: 2022-01-04
+  transactionType: MyText
+  transactionAmount: 9.99
+  transactionCategory: MyText
