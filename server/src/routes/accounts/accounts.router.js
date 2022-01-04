@@ -7,7 +7,7 @@ const {
   deleteAccount,
   getAccountById,
 } = require("./accounts.controller");
-const accountsRouter = express.Router();
+const accountsRouter = express.Router({ mergeParams: true });
 
 accountsRouter.get("/", getAllAccounts);
 accountsRouter.get("/:accountId", getAccountById);

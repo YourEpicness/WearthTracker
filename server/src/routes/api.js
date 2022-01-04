@@ -6,8 +6,8 @@ const accountsRouter = require("./accounts/accounts.router");
 
 const api = express.Router();
 
-api.use("/transactions", transactionsRouter);
 api.use("/users", usersRouter);
 api.use("/accounts", accountsRouter);
+api.use("/accounts/:id/transactions", transactionsRouter);
 
 module.exports = api;

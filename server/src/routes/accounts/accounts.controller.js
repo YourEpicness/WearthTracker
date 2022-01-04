@@ -24,8 +24,11 @@ async function getAccountById(req, res) {
 
 async function addAccount(req, res) {
   try {
-    await Account.create({});
-    return res.status(201);
+    await Account.create({
+      accountName: req.body.name,
+      accountLinkedBank: req.body.bank,
+    });
+    return res.status(201).json({ message: `Account created successfully` });
   } catch (err) {
     console.error(err);
   }
